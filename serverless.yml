@@ -1,0 +1,17 @@
+service: ProductorLoginArtifact # NOTE: update this with your service name
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-2
+
+functions:
+  app:
+    handler: handler.generic
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
+
